@@ -5,14 +5,18 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write   # ⭐ QUAN TRỌNG: cho phép ghi lên repo
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
